@@ -1,0 +1,18 @@
+{% extends 'Todo/base.html' %}
+{% load crispy_forms_tags %}
+{% load crispy_forms_filters %}
+
+
+{% block content %}
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    {{form.title | as_crispy_field}}
+    {{form.status | as_crispy_field}}
+    {{form.description | as_crispy_field}}
+
+    <button type="submit" class="btn btn-success"><i class="fa-solid fa-database"></i>Save</button>
+    <a href="{% url 'todo_list' %}" class="btn btn-outline-success">
+        <i class="fa fa-times"></i> Cancel
+    </a>
+</form>
+{% endblock content %} 
